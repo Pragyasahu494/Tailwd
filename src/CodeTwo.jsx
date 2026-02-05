@@ -91,25 +91,25 @@ function CodeTwo() {
       {/* <button onClick={()=>setValue(10000)} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">{value}</button> */}
       <div className="flex items-center justify-center mt-12 gap-10 ">
 
-        <table>
-          <thead>
+        <table className="border-collapse border border-gray-300 w-full max-w-4xl">
+          <thead className="bg-blue-500 text-white">
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Age</th>
-              <th>City</th>
-              <th>Contact No.</th>
+              <th className="border border-gray-300 p-3 text-left">ID</th>
+              <th className="border border-gray-300 p-3 text-left">Name</th>
+              <th className="border border-gray-300 p-3 text-left">Age</th>
+              <th className="border border-gray-300 p-3 text-left">City</th>
+              <th className="border border-gray-300 p-3 text-left">Contact No.</th>
             </tr>
           </thead>
           <tbody>
             {user.users.map((item, i) => {
               return (
-                <tr key={i}>
-                  <td>{item.id}</td>
-                  <td>{item.name}</td>
-                  <td>{item.age}</td>
-                  <td>{item.city}</td>
-                  <td>{item.contact}</td>
+                <tr key={i} className="hover:bg-gray-100 transition-colors">
+                  <td className="border border-gray-300 p-3">{item.id}</td>
+                  <td className="border border-gray-300 p-3">{item.name}</td>
+                  <td className="border border-gray-300 p-3">{item.age}</td>
+                  <td className="border border-gray-300 p-3">{item.city}</td>
+                  <td className="border border-gray-300 p-3">{item.contact}</td>
                 </tr>
               );
             })}
