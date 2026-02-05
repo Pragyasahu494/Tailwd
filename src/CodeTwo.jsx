@@ -41,13 +41,20 @@ function CodeTwo() {
             return(
               <div key={i}>
                 <table>
-                    <th>
-                      <tr>Id</tr> <tr>Name</tr> <tr>City</tr>
-                    </th>
-                  
+                  <thead>
+                    <tr>
+                    <th>Student ID</th>
+                     <th>Name</th> 
+                     <th>City</th> 
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
                        <td> {item.id}</td> 
                       <td> {item.name}</td> 
                     <td> {item.city}</td> 
+                    </tr> 
+                  </tbody>  
                 </table>
               
   
