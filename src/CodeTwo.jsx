@@ -36,30 +36,24 @@ function CodeTwo() {
       {/* <button onClick={()=>setValue(10000)} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">{value}</button> */}
       <div className="flex items-center justify-center mt-12 gap-10 ">
 
-        
-              <div key={i}>
-                <table>
-                  <thead>
-                    <tr>
-                    <th>Student ID</th>
-                     <th>Name</th> 
-                     <th>City</th> 
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {user.users.map((item, i) => (
-                    <tr key={i}>
-                       <td> {item.id}</td> 
-                      <td> {item.name}</td> 
-                    <td> {item.city}</td> 
-                    </tr> 
-                    ))}
-                  </tbody>  
-                </table>
-              
-  
-              </div>
-            
+        <table>
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Name</th>
+              <th>City</th>
+            </tr>
+          </thead>
+          <tbody>
+            {user.users.map((item, i) => (
+              <tr key={i}>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td>{item.city}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
         {/* {
           praful.map((item, i) => {
