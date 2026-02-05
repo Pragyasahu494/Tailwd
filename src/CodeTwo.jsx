@@ -47,7 +47,7 @@ function CodeTwo() {
                     <th>
                       <tr>Name</tr><td> {item.name}</td> 
                     </th>
-                    <th>City</th> <td> {item.city}</td> 
+                    <tr>City</tr> <td> {item.city}</td> 
                 </table>
               
                
