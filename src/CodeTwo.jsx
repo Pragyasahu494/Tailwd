@@ -42,16 +42,15 @@ function CodeTwo() {
               <div key={i}>
                 <table>
                     <th>
-                      <tr>Id</tr> <td> {item.id}</td> 
+                      <tr>Id</tr> <tr>Name</tr> <tr>City</tr>
                     </th>
-                    <th>
-                      <tr>Name</tr><td> {item.name}</td> 
-                    </th>
-                    <tr>City</tr> <td> {item.city}</td> 
+                  
+                       <td> {item.id}</td> 
+                      <td> {item.name}</td> 
+                    <td> {item.city}</td> 
                 </table>
               
-               
-              
+  
               </div>
             )
           })
