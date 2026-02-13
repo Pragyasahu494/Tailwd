@@ -95,10 +95,10 @@ function CodeTwo() {
           <thead className="bg-blue-500 text-white">
             <tr>
               <th className="border border-gray-300 p-3 text-center">ID</th>
-              <th className="border border-gray-300 p-3 text-left">Name</th>
-              <th className="border border-gray-300 p-3 text-left">Age</th>
-              <th className="border border-gray-300 p-3 text-left">City</th>
-              <th className="border border-gray-300 p-3 text-left">Contact No.</th>
+              <th className="border border-gray-300 p-3 text-center">Name</th>
+              <th className="border border-gray-300 p-3 text-center">Age</th>
+              <th className="border border-gray-300 p-3 text-center">City</th>
+              <th className="border border-gray-300 p-3 text-ce">Contact No.</th>
             </tr>
           </thead>
           <tbody>
