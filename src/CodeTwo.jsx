@@ -94,7 +94,7 @@ function CodeTwo() {
         <table className="border-collapse border border-gray-300 w-full max-w-4xl">
           <thead className="bg-blue-500 text-white">
             <tr>
-              <th className="border border-gray-300 p-3 text-left">ID</th>
+              <th className="border border-gray-300 p-3 text-center">ID</th>
               <th className="border border-gray-300 p-3 text-left">Name</th>
               <th className="border border-gray-300 p-3 text-left">Age</th>
               <th className="border border-gray-300 p-3 text-left">City</th>
