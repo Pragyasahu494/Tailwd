@@ -15,10 +15,11 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route path='/weather' element={<WeatherApp />} />
           <Route path='/' element={<CodeTwo />} />
           <Route path='/news' element={<NewsApp />} />
           <Route path='/docs' element={<Docs />} />
-          <Route path='/weather' element={<WeatherApp />} />
+          
           <Route path='/service' element={<CodeOne />}>
             <Route path='web' element={<CodeThree />} />
           </Route>
