@@ -31,7 +31,7 @@ const NewsApp = () => {
         <div
             style={{
                 minHeight: "100vh",
-                backgroundImage: "url('https://media.istockphoto.com/id/1345527119/video/graphical-modern-digital-world-news-studio-loop-background.avif?s=640x640&k=20&c=cr1SYYf7Dix-TgBqiYRLquAmi7TgEE3oZcMUExQ25QY=')",
+                backgroundImage: "url('https://www.shutterstock.com/shutterstock/videos/3822164211/thumb/1.jpg?ip=x480')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -44,11 +44,11 @@ const NewsApp = () => {
                 data.map((item, i) => {
                     return (
                         <div key={i}>
-                            <div class="max-w-sm rounded overflow-hidden shadow-lg min-w-[300px]">
+                            <div class="max-w-sm rounded-xl overflow-hidden shadow-2xl min-w-[300px] bg-white p-2">
                                 <img class="w-full" src={item.image_url} alt="news"/>
                                 <div class="px-6 py-4">
                                     <div class="font-bold text-xl mb-2">{item.title}</div>
-                                    <p class="text-gray-700 text-base">
+                                    <p class="text-black text-base leading-relaxed">
                                         {item.description}
                                     </p>
                                 </div>

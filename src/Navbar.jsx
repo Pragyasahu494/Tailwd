@@ -4,8 +4,8 @@ const Navbar = () => {
   return (
     <>
       <header>
-        <div id='one' className="w-full h-20 bg-[#2162b0] text-white">
-          <ul className='flex justify-center items-center h-full gap-[20px]'>
+        <div id='one' className="w-full h-20 bg-[#052853] text-white">
+          <ul className='flex justify-center items-center h-full gap-[20px] text-[20px]'>
             <li>
               <Link to="/">Home</Link>
             </li>
