@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import Tailwd from './Tailwd'
+import Tailwind from './Tailwind'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    Tailwd()
+    Tailwind()
   ],
 })
