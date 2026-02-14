@@ -14,7 +14,7 @@ export default function Home() {
       </header>
 
       {/* Main */}
-      <main className="flex flex-col items-center justify-center flex-grow">
+      <main className="flex flex-col items-center justify-center grow">
         
         {/* Logo */}
         <h1 className="text-6xl font-bold mb-8">
