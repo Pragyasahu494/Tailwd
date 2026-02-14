@@ -38,10 +38,10 @@ export default function Home() {
         {/* Buttons */}
         <div className="flex space-x-4 mt-6">
           <button className="bg-gray-100 px-6 py-2 rounded hover:shadow transition">
-            Google Search
+            Pinterest
           </button>
           <button className="bg-gray-100 px-6 py-2 rounded hover:shadow transition">
-            I'm Feeling Lucky
+            Pragya's Google
           </button>
         </div>
 

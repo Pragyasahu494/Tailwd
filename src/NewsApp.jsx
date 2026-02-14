@@ -27,25 +27,47 @@ const NewsApp = () => {
             {
                 data.map((item, i) => {
                     return (
-                        <div key={i}>
+    <>
+        <div
+            style={{
+                minHeight: "100vh",
+                backgroundImage: "url('https://media.istockphoto.com/id/1345527119/video/graphical-modern-digital-world-news-studio-loop-background.avif?s=640x640&k=20&c=cr1SYYf7Dix-TgBqiYRLquAmi7TgEE3oZcMUExQ25QY=')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                padding: "30px"
+            }}
+        >
 
+        <div className="flex justify-center flex-wrap gap-6">
+            {
+                data.map((item, i) => {
+                    return (
+                        <div key={i}>
                             <div class="max-w-sm rounded overflow-hidden shadow-lg min-w-[300px]">
-                                <img class="w-full" src={item.image_url} alt="Sunset in the mountains"/>
-                                    <div class="px-6 py-4">
-                                        <div class="font-bold text-xl mb-2">{item.title}</div>
-                                        <p class="text-gray-700 text-base">
-                                            {item.description}
-                                        </p>
-                                    </div>
-                                    <div class="px-6 pt-4 pb-2">
-                                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.pubDate}</span>
-                                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.language}</span>
-                                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.datatype}</span>
-                                    </div>
+                                <img class="w-full" src={item.image_url} alt="news"/>
+                                <div class="px-6 py-4">
+                                    <div class="font-bold text-xl mb-2">{item.title}</div>
+                                    <p class="text-gray-700 text-base">
+                                        {item.description}
+                                    </p>
+                                </div>
+                                <div class="px-6 pt-4 pb-2">
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.pubDate}</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.language}</span>
+                                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{item.datatype}</span>
+                                </div>
                             </div>
-                            <hr />
                         </div>
                     )
+                })
+            }
+        </div>
+
+        </div>
+    </>
+)
+
                 })
             }
 
