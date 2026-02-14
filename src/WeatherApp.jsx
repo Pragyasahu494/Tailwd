@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const cityName = ["Pune", "Mumbai", "Goa", "Delhi", "Yavatmal"];
+const cityName = ["Pune", "Mumbai", "Goa", "Delhi", "Yavatmal", "Nagpur", "Chennai", "Bangalore", "Hyderabad", "Kolkata", "Jaipur", "Lucknow", "Indore", "Bhopal", "Ahmedabad", "Surat"];
 
 const WeatherApp = () => {
   const [data, setData] = useState(null);
@@ -58,9 +58,11 @@ const WeatherApp = () => {
         <h1 className="text-4xl font-bold mb-6">Weather App</h1>
 
         <select
-          className="max-w-xl py-3 px-4 border rounded-lg mb-6"
-          onChange={(e) => setCity(e.target.value)}
-        >
+        className="max-w-xl py-3 px-4 border rounded-lg mb-6 
+         bg-white text-black shadow-md"
+        onChange={(e) => setCity(e.target.value)}
+>
+
           {cityName.map((cName, i) => (
             <option key={i} value={cName}>
               {cName}
@@ -70,31 +72,32 @@ const WeatherApp = () => {
 
         {loader ? (
           <h1 className="text-2xl font-bold mt-10">Loading...</h1>
-        ) : (
-          data && (
-            <div className="bg-white/30 backdrop-blur-md p-8 rounded-xl shadow-lg text-center">
-              <h2 className="text-2xl font-semibold">
-                {data.location.name}, {data.location.region}
-              </h2>
+        ) : data && (
+            <div className="bg-black/50 text-white p-8 rounded-xl shadow-lg text-center mt-6 w-[350px] backdrop-blur-md">
+    
+            <h2 className="text-2xl font-semibold">
+            {data.location.name}, {data.location.region}
+             </h2>
 
-              <p className="text-lg">
-                {new Date(data.current.last_updated).toLocaleString()}
-              </p>
+             <p className="text-sm mb-2">
+            {new Date(data.current.last_updated).toLocaleString()}
+            </p>
 
-              <img
-                src={data.current.condition.icon}
-                alt={data.current.condition.text}
-                className="mx-auto my-4"
-              />
+            <img
+            src={data.current.condition.icon}
+            alt={data.current.condition.text}
+            className="mx-auto my-4"
+             />
 
-              <p className="text-xl font-bold">
-                {data.current.temp_c}°C
-              </p>
+            <p className="text-3xl font-bold">
+            {data.current.temp_c}°C
+            </p>
 
-              <p>{data.current.condition.text}</p>
+            <p className="text-lg">
+            {data.current.condition.text}
+            </p>
             </div>
-          )
-        )}
+            )}
       </div>
     </div>
   );

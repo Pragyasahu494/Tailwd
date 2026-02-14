@@ -7,13 +7,15 @@ import Docs from "./Docs";
 import CodeOne from "./CodeOne";
 import CodeTwo from "./CodeTwo";
 import CodeThree from "./CodeThree";
+import Home from "./Home";
+
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<WeatherApp />} />
+        <Route path="/" element={<Home />} />
         <Route path="/tailwind" element={<Tailwind />} />
         <Route path="/news" element={<NewsApp />} />
         <Route path="/weather" element={<WeatherApp />} />
