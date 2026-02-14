@@ -13,6 +13,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
+        <Route path="/" element={<Tailwind />} />
         <Route path="/tailwind" element={<Tailwind />} />
         <Route path="/news" element={<NewsApp />} />
         <Route path="/weather" element={<WeatherApp />} />
