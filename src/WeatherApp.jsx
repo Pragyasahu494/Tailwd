@@ -1,86 +1,103 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-const cityName = [
-    {
-        name: "Pune",
-    },
-    {
-        name: "Mumbai",
-    },
-    {
-        name: "Goa"
-    },
-    {
-        name: "Delhi"
-    },
-    {
-        name: "Yavatmal"
-    }
-]
+const cityName = ["Pune", "Mumbai", "Goa", "Delhi", "Yavatmal"];
 
 const WeatherApp = () => {
+  const [data, setData] = useState(null);
+  const [loader, setLoader] = useState(false);
+  const [city, setCity] = useState("Pune");
 
-    const [data, setData] = useState(null);
-    const [loader, setLoader] = useState(false);
-    const [city, setCity] = useState('Pune');
+  const weatherApi = `https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=${city}&aqi=no`;
 
-    const weatherApi = `http://api.weatherapi.com/v1/current.json?key=bc03d1f21b9b4fea80b74349260802&q=${city}&aqi=no`
-    // `http://api.weatherapi.com/v1/current.json?key=bc03d1f21b9b4fea80b74349260802&q=${city}&aqi=no`
-
-    const getWeather = async () => {
-        try {
-            setLoader(true);
-            const response = await fetch(weatherApi);
-            const result = await response.json();
-            setData(result)
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setLoader(false);
-        }
+  const getWeather = async () => {
+    try {
+      setLoader(true);
+      const response = await fetch(weatherApi);
+      const result = await response.json();
+      setData(result);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoader(false);
     }
+  };
 
-    useEffect(() => {
-        getWeather();
-    }, [city])
+  useEffect(() => {
+    getWeather();
+  }, [city]);
 
-    return (
-        <>
-            <div className="flex w-full justify-center p-6 flex-col">
-                <h1 className='flex justify-center'>Weather App</h1>
+  // 🎯 Background Logic
+  const condition = data?.current?.condition?.text?.toLowerCase() || "";
+  const isDay = data?.current?.is_day === 1;
 
-                <select className="max-w-xl mx-auto py-3 px-4 pe-9 border block w-full m-6" name="city" id="city" onChange={(e) => setCity(e.target.value)}>
-                    <option disabled value="">Choose city</option>
-                    {cityName.map((cName, i) => (
-                        <option key={i} value={cName.name}>
-                            {cName.name}
-                        </option>
-                    ))}
-                </select>
-                {
-                    loader
-                        ?
-                        <h1 className='flex items-center justify-center w-full h-[90vh] text-2xl font-bold'>
-                            Loading.....
-                        </h1>
-                        :
-                        <>
-                            <div className='flex item-center gap-2'>
-                                <h1 className='text-xl text-gray-800'>{data?.location.name}, </h1>
-                                <h1 className='text-xl text-gray-800'>{data?.location.region}, </h1>
-                                <h1 className='text-xl text-gray-800'>{data?.location.country}</h1>
-                            </div>
-                            <div>
-                                {Date(data?.current.last_updated_epoch)}
-                                <img src={data?.current.condition.icon} alt={data?.current.text} />
-                                <p>{data?.current.condition.text}</p>
-                            </div>
-                        </>
+  let bgImage = "";
 
-                }
+  if (condition.includes("rain")) {
+    bgImage =
+      "bg-[url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')]";
+  } else if (condition.includes("cloud")) {
+    bgImage =
+      "bg-[url('https://images.unsplash.com/photo-1499346030926-9a72daac6c63')]";
+  } else if (condition.includes("snow")) {
+    bgImage =
+      "bg-[url('https://images.unsplash.com/photo-1608889175119-0b7f84fca2cc')]";
+  } else if (condition.includes("fog") || condition.includes("mist")) {
+    bgImage =
+      "bg-[url('https://images.unsplash.com/photo-1482192596544-9eb780fc7f66')]";
+  } else {
+    bgImage =
+      "bg-[url('https://images.unsplash.com/photo-1502082553048-f009c37129b9')]";
+  }
+
+  return (
+    <div
+      className={`min-h-screen bg-cover bg-center transition-all duration-500 ${bgImage} 
+      ${isDay ? "text-black" : "bg-black text-white"}`}
+    >
+      <div className="backdrop-brightness-75 min-h-screen p-6 flex flex-col items-center">
+        <h1 className="text-4xl font-bold mb-6">Weather App</h1>
+
+        <select
+          className="max-w-xl py-3 px-4 border rounded-lg mb-6"
+          onChange={(e) => setCity(e.target.value)}
+        >
+          {cityName.map((cName, i) => (
+            <option key={i} value={cName}>
+              {cName}
+            </option>
+          ))}
+        </select>
+
+        {loader ? (
+          <h1 className="text-2xl font-bold mt-10">Loading...</h1>
+        ) : (
+          data && (
+            <div className="bg-white/30 backdrop-blur-md p-8 rounded-xl shadow-lg text-center">
+              <h2 className="text-2xl font-semibold">
+                {data.location.name}, {data.location.region}
+              </h2>
+
+              <p className="text-lg">
+                {new Date(data.current.last_updated).toLocaleString()}
+              </p>
+
+              <img
+                src={data.current.condition.icon}
+                alt={data.current.condition.text}
+                className="mx-auto my-4"
+              />
+
+              <p className="text-xl font-bold">
+                {data.current.temp_c}°C
+              </p>
+
+              <p>{data.current.condition.text}</p>
             </div>
-        </>
-    )
-}
+          )
+        )}
+      </div>
+    </div>
+  );
+};
 
-export default WeatherApp
+export default WeatherApp;
