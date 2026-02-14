@@ -18,14 +18,13 @@ function App() {
           <Route path='/news' element={<NewsApp />} />
           <Route path='/weather' element={<WeatherApp />} />
           <Route path='/docs' element={<Docs />} />
-          <Route path='/about' element={<Tailwd />} />
+          <Route path='/tailwd' element={<Tailwd />} />
           <Route path='/service' element={<CodeOne />}>
             <Route path='web' element={<CodeThree />} />
           </Route>
 
           <Route path='/contact' element={<CodeOne />} />
         </Routes>
-
       </BrowserRouter>
 
     </>
