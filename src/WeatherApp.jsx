@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
 
-const cityName = ["Pune", "Mumbai", "Goa", "Delhi", "Yavatmal", "Nagpur", "Chennai", "Bangalore", "Hyderabad", "Kolkata", "Jaipur", "Lucknow", "Indore", "Bhopal", "Ahmedabad", "Surat"];
+const cityName = [
+  "Pune", "Mumbai", "Goa", "Delhi", "Nagpur", "Kashmir", "Shimla", "Dehradun",
+  "Chennai", "Bangalore", "Hyderabad", "Raipur","Meghalaya", "Jaipur", "Yavatmal",
+  "Kolkata", "Jaipur", "Lucknow","Nashik","Mawsynram", "Srinagar", "Mussoorie",
+  "Indore", "Bhopal", "Ahmedabad", "Surat", "Ooty", "Munnar", "Coorg", "Darjeeling", 
+  "Gangtok", "Rishikesh", "Haridwar", "Udaipur", "Jodhpur", "Amritsar", "Varanasi", 
+  "Agra", "Mathura", "Vrindavan","Nainital",, "Kedarnath", "Badrinath", "Gulmarg",
+  "Pahalgam", "Sonamarg", "Leh", "Ladakh"
+];
 
 const WeatherApp = () => {
+
   const [data, setData] = useState(null);
   const [loader, setLoader] = useState(false);
   const [city, setCity] = useState("Pune");
 
-  const weatherApi = `https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=${city}&aqi=no`;
+  const ApiKey = "3ba4a6ce599c41f59ea133847261602";
+  const weatherApi = `https://api.weatherapi.com/v1/current.json?key=${ApiKey}&q=${city}&aqi=no`;
 
   const getWeather = async () => {
     try {
@@ -26,44 +36,68 @@ const WeatherApp = () => {
     getWeather();
   }, [city]);
 
-  // 🎯 Background Logic
-  const condition = data?.current?.condition?.text?.toLowerCase() || "";
-  const isDay = data?.current?.is_day === 1;
+  const getBackgroundImage = () => {
+    if (!data) return "/sunshine.jpeg";
 
-  let bgImage = "";
+    const condition = data.current.condition.text.toLowerCase();
+    const temperature = data.current.temp_c;
 
-  if (condition.includes("rain")) {
-    bgImage =
-      "bg-[url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')]";
-  } else if (condition.includes("cloud")) {
-    bgImage =
-      "bg-[url('https://images.unsplash.com/photo-1499346030926-9a72daac6c63')]";
-  } else if (condition.includes("snow")) {
-    bgImage =
-      "bg-[url('https://images.unsplash.com/photo-1608889175119-0b7f84fca2cc')]";
-  } else if (condition.includes("fog") || condition.includes("mist")) {
-    bgImage =
-      "bg-[url('https://images.unsplash.com/photo-1482192596544-9eb780fc7f66')]";
-  } else {
-    bgImage =
-      "bg-[url('https://images.unsplash.com/photo-1502082553048-f009c37129b9')]";
-  }
+    if (temperature <= 0) {
+    return "/snow.jpg";
+    }
+
+    if (condition.includes("sunny") || condition.includes("clear")) {
+      return "/sunshine.jpeg";
+    }
+
+    if (condition.includes("snow") ||condition.includes("freezing") ||condition.includes("sleet") ||condition.includes("ice") ||condition.includes("blizzard") ) {
+      return "/snow.jpg";
+    }
+
+    if (condition.includes("rain") || condition.includes("drizzle")) {
+      return "/Rainy.jpg";
+    }
+
+    if (condition.includes("cloud") || condition.includes("overcast")) {
+      return "/cloudy.jpg";
+    }
+
+    if (condition.includes("mist") || condition.includes("fog") || condition.includes("haze")) {
+      return "/mist.jpg";
+    }
+
+    return "/sunshine.jpeg";
+  };
 
   return (
     <div
-      className={`min-h-screen bg-cover bg-center transition-all duration-500 ${bgImage} 
-      ${isDay ? "text-black" : "bg-black text-white"}`}
+      className="min-h-screen flex items-center justify-center bg-cover bg-center relative transition-all duration-700"
+      style={{
+        backgroundImage: `url(${getBackgroundImage()})`
+      }}
     >
-      <div className="backdrop-brightness-75 min-h-screen p-6 flex flex-col items-center">
-        <h1 className="text-4xl font-bold mb-6">Weather App</h1>
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      <div className="relative bg-white/20 backdrop-blur-lg w-full max-w-md rounded-2xl shadow-2xl p-8 text-white">
+
+        <h1 className="text-3xl font-bold mb-4 text-center bg-amber-50">
+          <span className="text-violet-800">W</span>
+          <span className="text-indigo-800">E</span>
+          <span className="text-blue-800">A</span>
+          <span className="text-green-500">T</span>
+          <span className="text-yellow-500">H</span>
+          <span className="text-orange-500">E</span>
+          <span className="text-red-500">R</span>
+        </h1>
 
         <select
-        className="max-w-xl py-3 px-4 border rounded-lg mb-6 
-         bg-white text-black shadow-md"
-        onChange={(e) => setCity(e.target.value)}
->
+          className="w-full p-3 rounded-lg mb-6 bg-white/30 text-black"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        >
+          {[...cityName].sort().map((cName, i) => (
 
-          {cityName.map((cName, i) => (
+          // {cityName.map((cName, i) => (
             <option key={i} value={cName}>
               {cName}
             </option>
@@ -71,33 +105,35 @@ const WeatherApp = () => {
         </select>
 
         {loader ? (
-          <h1 className="text-2xl font-bold mt-10">Loading...</h1>
-        ) : data && (
-            <div className="bg-black/50 text-white p-8 rounded-xl shadow-lg text-center mt-6 w-[350px] backdrop-blur-md">
-    
-            <h2 className="text-2xl font-semibold">
-            {data.location.name}, {data.location.region}
-             </h2>
+          <h2 className="text-center text-lg font-bold">
+            Loading...
+          </h2>
+        ) : (
+          data && (
+            <>
+              <div className="text-center mb-4">
+                <h2 className="text-xl font-semibold">
+                  {data.location.name}, {data.location.region}
+                </h2>
+                <p>{data.location.country}</p>
+              </div>
 
-             <p className="text-sm mb-2">
-            {new Date(data.current.last_updated).toLocaleString()}
-            </p>
-
-            <img
-            src={data.current.condition.icon}
-            alt={data.current.condition.text}
-            className="mx-auto my-4"
-             />
-
-            <p className="text-3xl font-bold">
-            {data.current.temp_c}°C
-            </p>
-
-            <p className="text-lg">
-            {data.current.condition.text}
-            </p>
-            </div>
-            )}
+              <div className="flex flex-col items-center">
+                <img
+                  src={data.current.condition.icon}
+                  alt={data.current.condition.text}
+                  className="w-20 h-20"
+                />
+                <p className="text-5xl font-bold">
+                  {data.current.temp_c}°C
+                </p>
+                <p className="text-lg">
+                  {data.current.condition.text}
+                </p>
+              </div>
+            </>
+          )
+        )}
       </div>
     </div>
   );

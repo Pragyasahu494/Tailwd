@@ -44,7 +44,7 @@ const NewsApp = () => {
                 data.map((item, i) => {
                     return (
                         <div key={i}>
-                            <div class="max-w-sm rounded-xl overflow-hidden shadow-2xl min-w-[300px] bg-white p-2">
+                            <div class="max-w-sm rounded-xl overflow-hidden shadow-2xl min-w-75 bg-white p-2">
                                 <img class="w-full" src={item.image_url} alt="news"/>
                                 <div class="px-6 py-4">
                                     <div class="font-bold text-xl mb-2">{item.title}</div>

@@ -5,7 +5,7 @@ const Navbar = () => {
     <>
       <header>
         <div id='one' className="w-full h-20 bg-[#052853] text-white">
-          <ul className='flex justify-center items-center h-full gap-[20px] text-[20px]'>
+          <ul className='flex justify-center items-center h-full gap-5 text-[20px]'>
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -20,6 +20,9 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <Link to="/tailwind">Tailwind</Link>
             </li>
           </ul>
         </div>

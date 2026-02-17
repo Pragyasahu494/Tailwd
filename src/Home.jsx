@@ -4,7 +4,6 @@ export default function Home() {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       
-      {/* Header */}
       <header className="flex justify-end items-center p-4 space-x-4 text-sm">
         <a href="#" className="hover:underline">Gmail</a>
         <a href="#" className="hover:underline">Images</a>
@@ -13,10 +12,8 @@ export default function Home() {
         </button>
       </header>
 
-      {/* Main */}
       <main className="flex flex-col items-center justify-center grow">
         
-        {/* Logo */}
         <h1 className="text-6xl font-bold mb-8">
           <span className="text-blue-500">G</span>
           <span className="text-red-500">o</span>
@@ -26,7 +23,7 @@ export default function Home() {
           <span className="text-red-500">e</span>
         </h1>
 
-        {/* Search Box */}
+      
         <div className="w-full max-w-xl">
           <input
             type="text"
