@@ -7,7 +7,8 @@ const cityName = [
   "Indore", "Bhopal", "Ahmedabad", "Surat", "Ooty", "Munnar", "Coorg", "Darjeeling", 
   "Gangtok", "Rishikesh", "Haridwar", "Udaipur", "Jodhpur", "Amritsar", "Varanasi", 
   "Agra", "Mathura", "Vrindavan","Nainital",, "Kedarnath", "Badrinath", "Gulmarg",
-  "Pahalgam", "Sonamarg", "Leh", "Ladakh"
+  "Pahalgam", "Sonamarg", "Leh", "Ladakh", "Mahabaleshwar", "Lonavala", "Khandala", 
+  "Matheran", "Alibaug", "Dapoli", "Ratnagiri",
 ];
 
 const WeatherApp = () => {
