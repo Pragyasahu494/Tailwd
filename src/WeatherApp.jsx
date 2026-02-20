@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 const cityName = [
   "Pune", "Mumbai", "Goa", "Delhi", "Nagpur", "Kashmir", "Shimla", "Dehradun",
   "Chennai", "Bangalore", "Hyderabad", "Raipur","Meghalaya", "Jaipur", "Yavatmal",
-  "Kolkata", "Jaipur", "Lucknow","Nashik","Mawsynram", "Srinagar", "Mussoorie",
+  "Kolkata", "Lucknow","Nashik","Mawsynram", "Srinagar", "Mussoorie",
   "Indore", "Bhopal", "Ahmedabad", "Surat", "Ooty", "Munnar", "Coorg", "Darjeeling", 
   "Gangtok", "Rishikesh", "Haridwar", "Udaipur", "Jodhpur", "Amritsar", "Varanasi", 
   "Agra", "Mathura", "Vrindavan","Nainital",, "Kedarnath", "Badrinath", "Gulmarg",
-  "Pahalgam", "Sonamarg", "Leh", "Ladakh", "Mahabaleshwar", "Lonavala", "Khandala", 
+  "Pahalgam", "Sonamarg", "Leh", "Ladakh", "Mahabaleshwar", "Lonavala", 
   "Matheran", "Alibaug", "Dapoli", "Ratnagiri",
 ];
 
@@ -47,11 +47,16 @@ const WeatherApp = () => {
     return "/snow.jpg";
     }
 
-    if (condition.includes("sunny") || condition.includes("clear")) {
+    if (condition.includes("sunny") 
+      || condition.includes("clear")
+    )
+     {
       return "/sunshine.jpeg";
     }
 
-    if (condition.includes("snow") ||condition.includes("freezing") ||condition.includes("sleet") ||condition.includes("ice") ||condition.includes("blizzard") ) {
+    if (condition.includes("snow") 
+      ||condition.includes("freezing") ||condition.includes("sleet") ||condition.includes("ice") ||condition.includes("blizzard") 
+    ) {
       return "/snow.jpg";
     }
 
@@ -81,7 +86,7 @@ const WeatherApp = () => {
 
       <div className="relative bg-white/20 backdrop-blur-lg w-full max-w-md rounded-2xl shadow-2xl p-8 text-white">
 
-        <h1 className="text-3xl font-bold mb-4 text-center bg-amber-50">
+        <h1 className="text-3xl bg-white font-bold mb-4 text-center">
           <span className="text-violet-800">W</span>
           <span className="text-indigo-800">E</span>
           <span className="text-blue-800">A</span>
@@ -114,9 +119,10 @@ const WeatherApp = () => {
             <>
               <div className="text-center mb-4">
                 <h2 className="text-xl font-semibold">
-                  {data.location.name}, {data.location.region}
+                  {data.location.name}, {data.location.region},
                 </h2>
-                <p>{data.location.country}</p>
+                <h3 className="text-m text-gray-100">{data.location.localtime}</h3>
+                <p className="text-l text-Times New Roman font-semibold text-white">{data.location.country}</p>
               </div>
 
               <div className="flex flex-col items-center">
