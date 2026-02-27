@@ -8,6 +8,8 @@ import CodeOne from "./CodeOne";
 import CodeTwo from "./CodeTwo";
 import CodeThree from "./CodeThree";
 import Home from "./Home";
+// import TextConverter from "./TextConvertor";
+import Converter from './Converter'
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Route path="/service" element={<CodeOne />} />
         <Route path="/web" element={<CodeThree />} />
         <Route path="/contact" element={<CodeTwo />} />
+        {/* <Route path="/convertor" element={<TextConverter/>}/> */}
+        <Route path='/converter' element={<Converter/>} />
       </Routes>
     </BrowserRouter>
   );

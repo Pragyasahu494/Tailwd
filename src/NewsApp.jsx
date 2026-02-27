@@ -4,8 +4,7 @@ const NewsApp = () => {
   const [data, setData] = useState([]);
   const [showPopup, setShowPopup] = useState(true); 
 
-  const newsApi =
-    "https://newsdata.io/api/1/latest?apikey=pub_ad3d3e3ab4a54482b8dc8546b9f2b183&q=pizza";
+  const newsApi = "https://newsdata.io/api/1/latest?apikey=pub_ad3d3e3ab4a54482b8dc8546b9f2b183&q=pizza";
 
   const getNews = async () => {
     try {

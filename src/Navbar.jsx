@@ -24,6 +24,9 @@ const Navbar = () => {
             <li>
               <Link to="/tailwind">Tailwind</Link>
             </li>
+            <li>
+              <Link to="/converter">Converter</Link>
+            </li>
           </ul>
         </div>
 
