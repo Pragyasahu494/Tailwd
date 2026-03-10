@@ -22,8 +22,28 @@ const Converter = () => {
     setApplyedCss('font-bold');
   }
 
+   function setItalic() {
+    setApplyedCss('italic');
+  }
+
+  function setUnderline() {
+    setApplyedCss('underline');
+  }
+
+  function handleClearText() {
+    setText('');
+    setApplyedCss(null);
+  }
+
+  function handleCapitalize() {
+    const value = text
+    const arr = value.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+    setText(arr)
+  }
+
   return (
     <>
+      <div className="max-w-4xl mx-auto bg-blue-50 border border-blue-300 p-8 rounded-xl shadow-lg">
       <div className="w-full h-screen p-8 bg-gray-200 flex justify-center">
         <div className="max-w-[1054px] w-full">
           <div className="w-full">
@@ -44,18 +64,23 @@ const Converter = () => {
             <button type="button" onClick={handleCopyText} className="bg-yellow-300 cursor-pointer py-3 px-4 inline-flex items-center gap-x-2 text-sm font-bold rounded-lg bg-primary border border-primary-line text-primary-foreground hover:bg-primary-hover focus:outline-hidden focus:bg-primary-focus  disabled:opacity-50 disabled:pointer-events-none" >
               Copy text
             </button>
+            <button type="button" onClick={handleClearText} className="bg-red-400 cursor-pointer py-3 px-4 inline-flex items-center gap-x-2 text-sm font-bold rounded-lg bg-primary border border-primary-line text-primary-foreground hover:bg-primary-hover focus:outline-hidden focus:bg-primary-focus  disabled:opacity-50 disabled:pointer-events-none" >
+              Clear text
+            </button>
 
             <div className="mt-10 bg-white w-full h-full p-6 rounded ">
               <p className={`text-red-500 ${applyedCss}`}>{text}</p>
               <p>{text.length}</p>
             </div>
 
-            <button onClick={setBold} className="cursor-pointer w-fit px-4 py-2 mt-2 rounded bg-blue-600 text-white">Bold</button>
-            <button onClick={setItalic} className="cursor-pointer w-fit px-4 py-2 mt-2 rounded bg-green-600 text-white">Italic</button>
-            <button onClick={setUnderline} className="cursor-pointer w-fit px-4 py-2 mt-2 rounded bg-yellow-600 text-white">Underline</button>
-
+            <button onClick={setBold} className="cursor-pointer  border-2 border-black w-fit px-4 py-2 mt-2 rounded bg-blue-600 text-white">Bold</button>
+            <button onClick={setItalic} className="cursor-pointer border-2 border-black w-fit px-4 py-2 mt-2 rounded bg-green-600 text-white">Italic</button>
+            <button onClick={setUnderline} className="cursor-pointer border-2 border-black w-fit px-4 py-2 mt-2 rounded bg-yellow-600 text-white">Underline</button>
+            <button onClick={handleCapitalize} className="cursor-pointer border-2 border-black w-fit px-4 py-2 mt-2 rounded bg-purple-600 text-white">Capitalize</button>
+          
           </div>
         </div>
+      </div>
       </div>
 
     </>

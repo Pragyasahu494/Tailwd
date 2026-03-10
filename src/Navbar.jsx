@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <>
       <header>
-        <div id='one' className="w-full h-20 bg-[#052853] text-white">
+        <div id='one' className="w-full h-15 bg-[#052853] text-white">
           <ul className='flex justify-center items-center h-full gap-5 text-[20px]'>
             <li>
               <Link to="/">Home</Link>
@@ -16,9 +16,6 @@ const Navbar = () => {
               <Link to="/weather">Weather</Link>
             </li>
             <li>
-              <Link to="/service">Service</Link>
-            </li>
-            <li>
               <Link to="/contact">Contact</Link>
             </li>
             <li>
@@ -26,6 +23,9 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/converter">Converter</Link>
+            </li>
+            <li>
+              <Link to="/myntra">Myntra</Link>
             </li>
           </ul>
         </div>

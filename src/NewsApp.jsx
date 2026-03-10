@@ -27,28 +27,35 @@ const NewsApp = () => {
     
     <div className="bg-white w-[500px] rounded-xl shadow-2xl p-8 text-center relative">
       
-      <h2 className="text-2xl font-bold mb-4">EXPRESS</h2>
+      <h2 className="text-2xl font-bold mb-4">Daily News</h2>
 
-      <p className="text-gray-700 mb-6 text-lg">
-        Daily Express uses notifications to keep you updated
-      </p>
-
-      <button
+      <p className="text-gray-700 mb-4 text-lg">
+        Daily News uses notifications to keep you updated</p>
+      <div className="flex gap-4 items-center justify-center">
+  <button 
+    onClick={() => setShowPopup(false)} 
+    className="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-6 py-2 rounded-full mb-4">
+    Keep me updated
+  </button>
+  <button 
+    onClick={() => setShowPopup(false)} 
+    className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-full mb-4">
+    No thanks
+  </button>
+</div>
+      {/* <button
         onClick={() => setShowPopup(false)}
-        className="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-6 py-2 rounded-full mb-4"
-      >
+        className="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-6 py-2 rounded-full mb-4">
         Keep me updated
       </button>
 
       <div>
         <button
           onClick={() => setShowPopup(false)}
-          className="bg-red-600 hover:bg-cyan-700 text-white font-semibold px-6 py-2 rounded-full mb-4"
-        >
+          className="bg-red-600 hover:bg-cyan-700 text-white font-semibold px-6 py-2 rounded-full mb-4">
           No thanks
-        </button>
-      </div>
-
+        </button> */}
+      {/* </div> */}
     </div>
   </div>
 )}
@@ -62,23 +69,13 @@ const NewsApp = () => {
     </header>
 
  <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 mt-8 px-4">
-
         {/* LEFT SIDE*/}
         <main className="md:w-3/4 grid grid-cols-1 md:grid-cols-2 gap-6">
           {data.map((item, i) => (
-            <div key={i} className="bg-white shadow rounded-lg p-4 overflow-hidden hover:bg-lime-200 shadow-2xl min-w-75">
-              <img
-                src={item.image_url}
-                alt="news"
-                className="w-full h-48 object-cover rounded"
-              />
-
-              <h3 className="text-lg font-bold mt-3">
-                {item.title}
-              </h3>
-              <p className="text-gray-600 text-sm mt-2">
-                {item.description?.slice(0, 150)}...
-              </p>
+            <div key={i} className="bg-white shadow rounded-lg p-4 overflow-hidden hover:bg-lime-200 hover:cursor-pointer shadow-2xl min-w-75">
+              <img src={item.image_url} alt="news" className="w-full h-48 object-cover rounded"/>
+              <h3 className="text-lg font-bold mt-3">{item.title}</h3>
+              <p className="text-gray-600 text-sm mt-2"> {item.description?.slice(0, 150)}...</p>
               {/* <p className="text-gray-600 text-sm mt-2 line-clamp-3">
                 {item.description}
               </p> */}
@@ -88,11 +85,8 @@ const NewsApp = () => {
                 <span className="capitalize inline-block bg-orange-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Creator-{item.creator}</span> 
                 <span className="capitalize inline-block text-l font-bold text-blue-900 mr-2 mb-2 bg-red-200 rounded-full px-3 py-1">Country - {item.country}</span> 
                 <span className="capitalize inline-block text-l font-bold text-emerald-800 mr-2 mb-2 bg-zinc-300 rounded-full px-3 py-1">Category - {item.category}</span> </div>
-              <a href={item.link}
-                target="_blank"
-                className="inline-block bg-blue-600 hover:bg-blue-800 text-white hover:text-xl font-bold py-2 px-4 rounded mt-3">              
-                Read More →
-              </a>
+              <a href={item.link} target="_blank" className="inline-block bg-blue-600 hover:bg-blue-800 text-white hover:text-xl font-bold py-2 px-4 rounded mt-3">              
+                Read More → </a>
             </div>
           ))}
         </main>
@@ -103,19 +97,10 @@ const NewsApp = () => {
           <h2 className="text-xl font-semibold mb-4 rounded-2xl bg-blue-600 text-white p-2 text-center">
             Latest News
           </h2>
-
           {data.slice(0, 6).map((item, i) => (
             <div key={i} className="flex items-center gap-3 bg-gray-50 p-2 rounded shadow-sm  overflow-hidden hover:bg-lime-200 shadow-2xl min-w-75" >
-              
-              <img src={item.image_url}
-                alt="news"
-                className="w-16 h-16 object-cover rounded"
-              />
-            <a href={item.link} target="_blank"
-            className="text-sm font-semibold hover:text-blue-600 hover:underline"
-            >
-            {item.title}
-            </a>
+              <img src={item.image_url} alt="news" className="w-16 h-16 object-cover rounded"/>
+            <a href={item.link} target="_blank" className="text-sm font-semibold hover:text-blue-600 hover:underline">{item.title}</a>
               {/* <p className="text-sm font-medium">
                 {item.title}
               </p> */}
