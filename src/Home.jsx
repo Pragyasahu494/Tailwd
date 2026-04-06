@@ -34,14 +34,19 @@ export default function Home() {
 
         {/* Buttons */}
         <div className="flex space-x-4 mt-6">
-          <button className="bg-gray-100 px-6 py-2 rounded hover:shadow transition">
+          <a href="https://www.google.com/search?q=google+search" className="bg-gray-100 px-6 py-2 rounded border-2 border-gray-300 hover:shadow transition">
+            Google Search
+          </a>
+          <a href="https://www.pinterest.com" className="bg-red-100 px-6 py-2 rounded border-2 border-gray-300 hover:shadow transition">
             Pinterest
-          </button>
-          <button className="bg-gray-100 px-6 py-2 rounded hover:shadow transition">
-            Pragya's Google
-          </button>
+          </a>
+          <a href="https://www.youtube.com/" className="bg-red-100 px-6 py-2 rounded border-2 border-gray-300 hover:shadow transition">
+            YouTube
+          </a>
+          <a href="https://www.facebook.com" className="bg-blue-100 px-6 py-2 rounded border-2 border-gray-300 hover:shadow transition">
+            Facebook
+          </a>
         </div>
-
       </main>
 
       {/* Footer */}

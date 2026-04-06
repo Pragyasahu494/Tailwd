@@ -70,7 +70,7 @@ const Converter = () => {
 
             <div className="mt-10 bg-white w-full h-full p-6 rounded ">
               <p className={`text-red-500 ${applyedCss}`}>{text}</p>
-              <p>{text.length}</p>
+              <p>character:{text.length}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Words : {text.split(" ").filter(word => word !== "").length}</p>
             </div>
 
             <button onClick={setBold} className="cursor-pointer  border-2 border-black w-fit px-4 py-2 mt-2 rounded bg-blue-600 text-white">Bold</button>

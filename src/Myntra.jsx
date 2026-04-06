@@ -2,6 +2,8 @@ import { VscAccount } from "react-icons/vsc";
 import { VscHeart } from "react-icons/vsc";
 import { VscArchive } from "react-icons/vsc";
 import { VscSearch } from "react-icons/vsc";
+import { VscArrowLeft } from "react-icons/vsc";
+import { VscArrowRight } from "react-icons/vsc";
 function Myntra() {
     return (
         <>
@@ -57,6 +59,40 @@ function Myntra() {
                 </ul>
             </div>
             </header>
+<div className="w-full bg-gray-100 py-6 flex justify-center">
+  <div className="grid grid-cols-2 gap-0 max-w-[2200px]">
+    {/* <a href="/men" className="relative block">
+  <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"
+    alt="For Him"
+    className="rounded-lg shadow-md hover:scale-105 transition cursor-pointer"/>
+  <span className="absolute inset-0 flex items-center justify-center text-white hover:text-blue-300 text-6xl font-bold">
+    FOR HIM
+  </span> */}
+  <a href="https://www.myntra.com/shop/men" className="relative block">
+  <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"
+    alt="For Him"
+    className="rounded-lg shadow-md hover:scale-105 transition cursor-pointer"/>
+  <button className="absolute inset-0 m-auto h-12 w-44 flex items-center justify-center gap-2 bg-white text-black text-lg font-bold rounded-md shadow-md hover:bg-black hover:text-white transition">
+    FOR HIM <VscArrowLeft />
+  </button>
+</a>
+    {/* <a href="/men">
+      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"
+        alt="Men"
+        className="rounded-lg shadow-md hover:scale-105 transition cursor-pointer"/>
+    </a> */}
+
+    <a href="https://www.myntra.com/shop/women" className="relative block">
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
+        alt="FOR HER"
+        className="rounded-lg shadow-md hover:scale-105 transition cursor-pointer"/>
+        <button className="absolute inset-0 m-auto h-12 w-44 flex items-center justify-center gap-2 bg-white text-black text-lg font-bold rounded-md shadow-md hover:bg-black hover:text-white transition">
+          FOR HER <VscArrowRight />
+        </button>
+    </a>
+
+  </div>
+</div>
         </>
     )
 }

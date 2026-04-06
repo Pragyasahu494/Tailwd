@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
-import Tailwind from "./Tailwind";
 import NewsApp from "./NewsApp";
 import WeatherApp from "./WeatherApp";
 import Docs from "./Docs";
@@ -15,7 +14,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/tailwind" element={<Tailwind />} />
         <Route path="/news" element={<NewsApp />} />
         <Route path="/weather" element={<WeatherApp />} />
         <Route path="/docs" element={<Docs />} />
